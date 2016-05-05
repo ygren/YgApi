@@ -64,6 +64,4 @@ apidoc.html the api description file
 
 
 all copyrigt reserved by YgRen
-=======
-apidoc.html the api description file 
->>>>>>> origin/master
+
