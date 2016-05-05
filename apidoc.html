@@ -1,0 +1,4483 @@
+<!DOCTYPE html><html><head><title>移动端相关接口文档</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'></head><body><div id='preview-contents' class='note-content'>
+                        <div id="wmd-preview" class="preview-content"></div>
+                    <div id="wmd-preview-section-61" class="wmd-preview-section preview-content">
+
+</div><div id="wmd-preview-section-62" class="wmd-preview-section preview-content">
+
+<h1 id="移动端相关接口文档">移动端相关接口文档</h1>
+
+<p><strong>说明</strong> <br>
+本文档用于移动端开发文档，所有的接口符合RESTFUL API风格。本文档的最终解释权作者本人所有。</p>
+
+<div><div class="toc"><div class="toc">
+<ul>
+<li><a href="#几图项目移动端相关接口文档">几图项目移动端相关接口文档</a><ul>
+<li><ul>
+<li><a href="#接口名称注册">接口名称：注册</a></li>
+<li><a href="#接口名称登录">接口名称：登录</a></li>
+<li><a href="#接口名称退出登录">接口名称：退出登录</a></li>
+<li><a href="#接口名称个人信息设置">接口名称：个人信息设置</a></li>
+<li><a href="#接口名称获取指定用户信息开放接口">接口名称：获取指定用户信息（开放接口）</a></li>
+<li><a href="#接口名称获取用户个人信息">接口名称：获取用户个人信息</a></li>
+<li><a href="#接口名称设置个人头像">接口名称：设置个人头像</a></li>
+<li><a href="#接口名称设置个人背景">接口名称：设置个人背景</a></li>
+<li><a href="#接口名称获取当日主题开放接口">接口名称：获取当日主题(开放接口)</a></li>
+<li><a href="#接口名称发送图片">接口名称：发送图片</a></li>
+<li><a href="#接口名称获取用户当日发送内容">接口名称：获取用户当日发送内容</a></li>
+<li><a href="#接口名称生成对战接口">接口名称：生成对战接口</a></li>
+<li><a href="#接口名称随机获取对战接口">接口名称：随机获取对战接口</a></li>
+<li><a href="#接口名称获取指定图片对战接口">接口名称：获取指定图片对战接口</a></li>
+<li><a href="#接口名称随机获取复活">接口名称：随机获取复活</a></li>
+<li><a href="#接口名称对战投票">接口名称：对战投票</a></li>
+<li><a href="#接口名称删除对战投票">接口名称：删除对战投票</a></li>
+<li><a href="#接口名称复活投票">接口名称：复活投票</a></li>
+<li><a href="#接口名称删除复活投票">接口名称：删除复活投票</a></li>
+<li><a href="#接口名称复活死亡投票">接口名称：复活死亡投票</a></li>
+<li><a href="#接口名称删除复活死亡投票">接口名称：删除复活死亡投票</a></li>
+<li><a href="#接口名称获取指定对战投票详情">接口名称：获取指定对战投票详情</a></li>
+<li><a href="#接口名称获取指定对战投票详情-1">接口名称：获取指定对战投票详情</a></li>
+<li><a href="#接口名称图片点赞">接口名称：图片点赞</a></li>
+<li><a href="#接口名称宣传栏及广告栏内容获取开放接口">接口名称：宣传栏及广告栏内容获取（开放接口）</a></li>
+<li><a href="#接口名称排行榜获取开放接口">接口名称：排行榜获取（开放接口）</a></li>
+<li><a href="#接口名称关注">接口名称：关注</a></li>
+<li><a href="#接口名称获取关注用户id列表">接口名称：获取关注用户ID列表</a></li>
+<li><a href="#接口名称获取粉丝用户id列表">接口名称：获取粉丝用户ID列表</a></li>
+<li><a href="#接口名称发送私信">接口名称：发送私信</a></li>
+<li><a href="#接口名称发送评论">接口名称：发送评论</a></li>
+<li><a href="#接口名称获取评论">接口名称：获取评论</a></li>
+<li><a href="#接口名称发送评论-1">接口名称：发送评论</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<p>系统错误提示说明 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">2000</td>
+  <td align="right">php info error 服务器不支持pathinfo</td>
+</tr>
+<tr>
+  <td align="left">2001</td>
+  <td align="right">controller not found 找不到相应控制器，路径错误</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-63" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称注册">接口名称：注册</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/user/register" target="_blank">www.eddywren.com/api/index.php/v1/user/register</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/user/register" target="_blank">www.jjpicture.com/api/index.php/v1/user/register</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">账号</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，用户填写，由11位手机号构成，String</td>
+</tr>
+<tr>
+  <td align="left">password</td>
+  <td align="right">密码</td>
+  <td align="center">是</td>
+  <td align="center">用户密码，用户填写，String</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..uid</td>
+  <td align="right">用户ID</td>
+  <td align="center">注册成功返回注册用户ID</td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">注册时间</td>
+  <td align="center">注册成功返回用户注册时间</td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1001</td>
+  <td align="right">注册失败，该注册用户已存在</td>
+</tr>
+</tbody></table>
+
+
+<p>注：在登录前会进行手机号验证，此接口尚未集成第三方登录，待修正</p>
+
+</div><div id="wmd-preview-section-64" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称登录">接口名称：登录</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/user/login" target="_blank">www.eddywren.com/api/index.php/v1/user/login</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/user/login" target="_blank">www.jjpicture.com/api/index.php/v1/user/login</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">账号</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，用户填写，由11位手机号构成，String</td>
+</tr>
+<tr>
+  <td align="left">password</td>
+  <td align="right">密码</td>
+  <td align="center">是</td>
+  <td align="center">用户密码，用户填写，String</td>
+</tr>
+<tr>
+  <td align="left">cid</td>
+  <td align="right">clientid</td>
+  <td align="center">是</td>
+  <td align="center">个推第三方推送SDK生产的唯一识别码clientid，开发者实现填写，String，32位</td>
+</tr>
+<tr>
+  <td align="left">device_name</td>
+  <td align="right">设备名称</td>
+  <td align="center">是</td>
+  <td align="center">用户所使用移动设备名称，开发者实现填写，String</td>
+</tr>
+<tr>
+  <td align="left">operating_system</td>
+  <td align="right">操作系统</td>
+  <td align="center">是</td>
+  <td align="center">用户所使用的移动设备操作系统名称及版本号，开发者实现填写，String</td>
+</tr>
+<tr>
+  <td align="left">imei_code</td>
+  <td align="right">IMEI码</td>
+  <td align="center">是</td>
+  <td align="center">用户移动设备的IMEI国际唯一识别码，开发者实现填写，String</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">用于用户登录状态保持的令牌</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..uid</td>
+  <td align="right">用户ID</td>
+  <td align="center">注册成功返回注册用户ID</td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">用户创建时间</td>
+  <td align="center">用户注册时间</td>
+</tr>
+<tr>
+  <td align="left">Data..updatetime</td>
+  <td align="right">用户更新时间</td>
+  <td align="center">用户此次登录时间</td>
+</tr>
+<tr>
+  <td align="left">Data..islock</td>
+  <td align="right">判断用户是否锁定</td>
+  <td align="center">默认为0，正常状态，为1时，用户处于锁定状态，不可登录</td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1002</td>
+  <td align="right">登录失败，不存在该用户</td>
+</tr>
+<tr>
+  <td align="left">1003</td>
+  <td align="right">登录失败，密码错误</td>
+</tr>
+<tr>
+  <td align="left">1004</td>
+  <td align="right">登录失败，该用户已在线</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-65" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称退出登录">接口名称：退出登录</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/user/logout" target="_blank">www.eddywren.com/api/index.php/v1/user/logout</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/user/logout" target="_blank">www.jjpicture.com/api/index.php/v1/user/logout</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">账号</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，开发者填写，由11位手机号构成，String</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">是</td>
+  <td align="center">用户登录状态保持，开发者填写填写，String</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1005</td>
+  <td align="right">操作失败，该用户未登录</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-66" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称个人信息设置">接口名称：个人信息设置</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/info/set" target="_blank">www.eddywren.com/api/index.php/v1/info/set</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/info/set" target="_blank">www.jjpicture.com/api/index.php/v1/info/set</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">账号</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，用户填写，由11位手机号构成，String</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">是</td>
+  <td align="center">用于用户登录状态保持，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">nickname</td>
+  <td align="right">昵称</td>
+  <td align="center">否</td>
+  <td align="center">用户昵称，用户填写，String</td>
+</tr>
+<tr>
+  <td align="left">sex</td>
+  <td align="right">性别</td>
+  <td align="center">否</td>
+  <td align="center">用户性别，用户填写，String,固定“男”或者“女”</td>
+</tr>
+<tr>
+  <td align="left">age</td>
+  <td align="right">性别</td>
+  <td align="center">否</td>
+  <td align="center">用户性别，用户填写，int</td>
+</tr>
+<tr>
+  <td align="left">location_province</td>
+  <td align="right">用户所处地理位置</td>
+  <td align="center">否</td>
+  <td align="center">常量 男 或 女 用户填写，String ，下拉列表选择</td>
+</tr>
+<tr>
+  <td align="left">location_city</td>
+  <td align="right">用户所处地理位置</td>
+  <td align="center">否</td>
+  <td align="center">常量 男 或 女 用户填写，String，下拉列表选择</td>
+</tr>
+<tr>
+  <td align="left">bloodtype</td>
+  <td align="right">血型</td>
+  <td align="center">否</td>
+  <td align="center">血型，用户填写，String ，下拉列表选择</td>
+</tr>
+<tr>
+  <td align="left">email</td>
+  <td align="right">邮箱</td>
+  <td align="center">否</td>
+  <td align="center">可用于找回密码等用途，用户填写，String</td>
+</tr>
+<tr>
+  <td align="left">graduation</td>
+  <td align="right">毕业院校</td>
+  <td align="center">否</td>
+  <td align="center">用户毕业院校，用户填写，String</td>
+</tr>
+<tr>
+  <td align="left">intro</td>
+  <td align="right">用户个人简介</td>
+  <td align="center">否</td>
+  <td align="center">用户个人简介，用户填写，String</td>
+</tr>
+<tr>
+  <td align="left">birthday</td>
+  <td align="right">用户生日</td>
+  <td align="center">否</td>
+  <td align="center">用户填写，YYYY-MM-DD</td>
+</tr>
+<tr>
+  <td align="left">chick_id</td>
+  <td align="right">用户专属鸡ID</td>
+  <td align="center">用户专属鸡ID</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">用于用户登录状态保持的令牌</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..uid</td>
+  <td align="right">用户名ID</td>
+  <td align="center">所设置信息的用户ID</td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">用户创建个人信息时间</td>
+  <td align="center">用户创建个人信息时间</td>
+</tr>
+<tr>
+  <td align="left">Data..updatetime</td>
+  <td align="right">用户更新个人信息时间</td>
+  <td align="center">用户更新个人信息时间</td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1005</td>
+  <td align="right">操作失败，该用户未登录</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-67" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称获取指定用户信息开放接口">接口名称：获取指定用户信息（开放接口）</h3>
+
+<p>（可用于获取指定用户信息） <br>
+接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/info/getappoint" target="_blank">www.eddywren.com/api/index.php/v1/info/getappoint</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/info/getappoint" target="_blank">www.jjpicture.com/api/index.php/v1/info/getappoint</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">uid</td>
+  <td align="right">用户ID</td>
+  <td align="center">是</td>
+  <td align="center">用户ID，开发者填写，String</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..nickname</td>
+  <td align="right">昵称</td>
+  <td align="center">用户昵称</td>
+</tr>
+<tr>
+  <td align="left">Data..sex</td>
+  <td align="right">性别</td>
+  <td align="center">用户性别</td>
+</tr>
+<tr>
+  <td align="left">Data..age</td>
+  <td align="right">年龄</td>
+  <td align="center">用户年龄</td>
+</tr>
+<tr>
+  <td align="left">Data..location_province</td>
+  <td align="right">所在省</td>
+  <td align="center">用户位置所在省</td>
+</tr>
+<tr>
+  <td align="left">Data..location_city</td>
+  <td align="right">所在城市</td>
+  <td align="center">用户位置所在城市</td>
+</tr>
+<tr>
+  <td align="left">Data..birthday</td>
+  <td align="right">生日</td>
+  <td align="center">用户生日，可用于计算年龄，属相，星座等</td>
+</tr>
+<tr>
+  <td align="left">Data..bloodtype</td>
+  <td align="right">血型</td>
+  <td align="center">血型信息</td>
+</tr>
+<tr>
+  <td align="left">Data..graduation</td>
+  <td align="right">毕业院校</td>
+  <td align="center">用户毕业院校</td>
+</tr>
+<tr>
+  <td align="left">Data..follow</td>
+  <td align="right">关注用户数</td>
+  <td align="center">用户关注的用户数量</td>
+</tr>
+<tr>
+  <td align="left">Data..fans</td>
+  <td align="right">粉丝数</td>
+  <td align="center">用户拥有的粉丝数量</td>
+</tr>
+<tr>
+  <td align="left">Data..intro</td>
+  <td align="right">个人简介</td>
+  <td align="center">用户个人主页的简介</td>
+</tr>
+<tr>
+  <td align="left">Data..head_pic_path</td>
+  <td align="right">头像图片路径</td>
+  <td align="center">用户个人头像</td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">跟人信息创建时间</td>
+  <td align="center">用户创建个人信息时间</td>
+</tr>
+<tr>
+  <td align="left">Data..updatetime</td>
+  <td align="right">个人信息更新时间</td>
+  <td align="center">用户更新个人信息时间</td>
+</tr>
+<tr>
+  <td align="left">Data..background_pic_path</td>
+  <td align="right">个人页面背景图片路径</td>
+  <td align="center">用户个人页面背景图片路径</td>
+</tr>
+<tr>
+  <td align="left">Data..chick_id</td>
+  <td align="right">用户专属鸡ID</td>
+  <td align="center">用户专属鸡ID</td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1002</td>
+  <td align="right">获取失败，不存在该用户个人信息</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-68" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称获取用户个人信息">接口名称：获取用户个人信息</h3>
+
+<p>（可用于获取用户个人信息） <br>
+接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/info/get" target="_blank">www.eddywren.com/api/index.php/v1/info/get</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/info/get" target="_blank">www.jjpicture.com/api/index.php/v1/info/get</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">用户名</td>
+  <td align="center">是</td>
+  <td align="center">用户ID，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">是</td>
+  <td align="center">用户令牌，开发者填写，String</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..nickname</td>
+  <td align="right">昵称</td>
+  <td align="center">用户昵称</td>
+</tr>
+<tr>
+  <td align="left">Data..sex</td>
+  <td align="right">性别</td>
+  <td align="center">用户性别</td>
+</tr>
+<tr>
+  <td align="left">Data..age</td>
+  <td align="right">年龄</td>
+  <td align="center">用户年龄</td>
+</tr>
+<tr>
+  <td align="left">Data..location_province</td>
+  <td align="right">所在省</td>
+  <td align="center">用户位置所在省</td>
+</tr>
+<tr>
+  <td align="left">Data..location_city</td>
+  <td align="right">所在城市</td>
+  <td align="center">用户位置所在城市</td>
+</tr>
+<tr>
+  <td align="left">Data..birthday</td>
+  <td align="right">生日</td>
+  <td align="center">用户生日，可用于计算年龄，属相，星座等</td>
+</tr>
+<tr>
+  <td align="left">Data..bloodtype</td>
+  <td align="right">血型</td>
+  <td align="center">血型信息</td>
+</tr>
+<tr>
+  <td align="left">Data..graduation</td>
+  <td align="right">毕业院校</td>
+  <td align="center">用户毕业院校</td>
+</tr>
+<tr>
+  <td align="left">Data..email</td>
+  <td align="right">邮箱</td>
+  <td align="center">用户邮箱</td>
+</tr>
+<tr>
+  <td align="left">Data..follow</td>
+  <td align="right">关注用户数</td>
+  <td align="center">用户关注的用户数量</td>
+</tr>
+<tr>
+  <td align="left">Data..fans</td>
+  <td align="right">粉丝数</td>
+  <td align="center">用户拥有的粉丝数量</td>
+</tr>
+<tr>
+  <td align="left">Data..intro</td>
+  <td align="right">个人简介</td>
+  <td align="center">用户个人主页的简介</td>
+</tr>
+<tr>
+  <td align="left">Data..head_pic_path</td>
+  <td align="right">头像图片路径</td>
+  <td align="center">用户个人头像</td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">跟人信息创建时间</td>
+  <td align="center">用户创建个人信息时间</td>
+</tr>
+<tr>
+  <td align="left">Data..updatetime</td>
+  <td align="right">个人信息更新时间</td>
+  <td align="center">用户更新个人信息时间</td>
+</tr>
+<tr>
+  <td align="left">Data..background_pic_path</td>
+  <td align="right">个人页面背景图片路径</td>
+  <td align="center">用户个人页面背景图片路径</td>
+</tr>
+<tr>
+  <td align="left">Data..chick_id</td>
+  <td align="right">用户专属鸡ID</td>
+  <td align="center">用户专属鸡ID</td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1002</td>
+  <td align="right">获取失败，不存在该用户个人信息</td>
+</tr>
+<tr>
+  <td align="left">1005</td>
+  <td align="right">操作失败，该用户未登录</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-69" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称设置个人头像">接口名称：设置个人头像</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/file/setheadpic" target="_blank">www.eddywren.com/api/index.php/v1/file/setheadpic</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/file/setheadpic" target="_blank">www.jjpicture.com/api/index.php/v1/file/setheadpic</a> <br>
+请求方式：POST <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">账号</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，用户填写，由11位手机号构成，String</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">是</td>
+  <td align="center">用于用户登录状态保持，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">headpic</td>
+  <td align="right">头像图片</td>
+  <td align="center">是</td>
+  <td align="center">头像图片，用户选择本地或拍摄，使用form-data方式提交</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">用于用户登录状态保持的令牌</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..uid</td>
+  <td align="right">用户ID</td>
+  <td align="center">上传用户用户ID</td>
+</tr>
+<tr>
+  <td align="left">Data..updatetime</td>
+  <td align="right">更新时间</td>
+  <td align="center">个人信息更新时间</td>
+</tr>
+<tr>
+  <td align="left">Data..head_pic_path</td>
+  <td align="right">头像路径</td>
+  <td align="center">个人头像路径</td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1005</td>
+  <td align="right">操作失败，该用户未登录</td>
+</tr>
+<tr>
+  <td align="left">1020</td>
+  <td align="right">不能打开该路径</td>
+</tr>
+<tr>
+  <td align="left">1021</td>
+  <td align="right">设置失败，不支持该文件类型</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-70" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称设置个人背景">接口名称：设置个人背景</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/file/setbcakground" target="_blank">www.eddywren.com/api/index.php/v1/file/setbackground</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/file/setbackground" target="_blank">www.jjpicture.com/api/index.php/v1/file/setbackground</a> <br>
+请求方式：POST <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">账号</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，用户填写，由11位手机号构成，String</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">是</td>
+  <td align="center">用于用户登录状态保持，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">background</td>
+  <td align="right">背景图片</td>
+  <td align="center">是</td>
+  <td align="center">背景图片，用户选择本地或拍摄，使用form-dataf方式提交</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">用于用户登录状态保持的令牌</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..uid</td>
+  <td align="right">用户ID</td>
+  <td align="center">上传用户用户ID</td>
+</tr>
+<tr>
+  <td align="left">Data..updatetime</td>
+  <td align="right">更新时间</td>
+  <td align="center">个人信息更新时间</td>
+</tr>
+<tr>
+  <td align="left">Data..background_pic_path</td>
+  <td align="right">头像路径</td>
+  <td align="center">个人头像路径</td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1005</td>
+  <td align="right">操作失败，该用户未登录</td>
+</tr>
+<tr>
+  <td align="left">1020</td>
+  <td align="right">不能打开该路径</td>
+</tr>
+<tr>
+  <td align="left">1021</td>
+  <td align="right">设置失败，不支持该文件类型</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-71" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称获取当日主题开放接口">接口名称：获取当日主题(开放接口)</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/theme/get" target="_blank">www.eddywren.com/api/index.php/v1/theme/get</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/theme/get" target="_blank">www.jjpicture.com/api/index.php/v1/theme/get</a> <br>
+请求方式：GET <br>
+请求参数 <br>
+无</p>
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">用于用户登录状态保持的令牌</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..id</td>
+  <td align="right">主题ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..theme</td>
+  <td align="right">主题名称</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..content</td>
+  <td align="right">主题内容描述</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..updatetime</td>
+  <td align="right">主题更新时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..theme_thumb_pic</td>
+  <td align="right">主题缩略图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..theme_original_pic</td>
+  <td align="right">主题原图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..theme_code</td>
+  <td align="right">主题唯一识别码</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1030</td>
+  <td align="right">获取当日主题失败，主题未更新</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-72" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称发送图片">接口名称：发送图片</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/file/upload" target="_blank">www.eddywren.com/api/index.php/v1/file/upload</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/file/upload" target="_blank">www.jjpicture.com/api/index.php/v1/file/upload</a> <br>
+请求方式：POST <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">账号</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，用户填写，由11位手机号构成，String</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">是</td>
+  <td align="center">用于用户登录状态保持，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">theme</td>
+  <td align="right">发送图片主题</td>
+  <td align="center">是</td>
+  <td align="center">发送图片主题，个人：person 纪念：memory 食物：food 吐槽 ：complain 可选一：alterone 可选二：altertwo</td>
+</tr>
+<tr>
+  <td align="left">content</td>
+  <td align="right">图片内容描述</td>
+  <td align="center">是</td>
+  <td align="center">用于用户发送图片描述，用户填写，String</td>
+</tr>
+<tr>
+  <td align="left">original</td>
+  <td align="right">原图</td>
+  <td align="center">是</td>
+  <td align="center">发送图片原图，开发者填写，使用form－data方式提交</td>
+</tr>
+<tr>
+  <td align="left">thumb</td>
+  <td align="right">缩略图</td>
+  <td align="center">是</td>
+  <td align="center">发送图片缩略图，开发者填写，使用form－data方式提交</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">用于用户登录状态保持的令牌</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..uid</td>
+  <td align="right">用户ID</td>
+  <td align="center">上传用户用户ID</td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">创建</td>
+  <td align="center">个人信息更新时间</td>
+</tr>
+<tr>
+  <td align="left">Data..original_pic_path</td>
+  <td align="right">原图路径</td>
+  <td align="center">原图路径</td>
+</tr>
+<tr>
+  <td align="left">Data..thumb_pic_path</td>
+  <td align="right">原图路径</td>
+  <td align="center">原图路径</td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1005</td>
+  <td align="right">操作失败，该用户未登录</td>
+</tr>
+<tr>
+  <td align="left">1020</td>
+  <td align="right">不能打开该路径</td>
+</tr>
+<tr>
+  <td align="left">1021</td>
+  <td align="right">设置失败，不支持该文件类型</td>
+</tr>
+<tr>
+  <td align="left">1032</td>
+  <td align="right">发送失败，该用户已发送当日主题相关图片</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-73" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称获取用户当日发送内容">接口名称：获取用户当日发送内容</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/theme/getuser" target="_blank">www.eddywren.com/api/index.php/v1/theme/getuser</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/theme/getuser" target="_blank">www.jjpicture.com/api/index.php/v1/theme/getuser</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">账号</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，用户填写，由11位手机号构成，String</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">是</td>
+  <td align="center">用于用户登录状态保持，开发者填写，String</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">用于用户登录状态保持的令牌</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..id</td>
+  <td align="right">用户发送图片信息ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..content</td>
+  <td align="right">用户发送图片信息内容</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">用户发送图片信息时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..updatetime</td>
+  <td align="right">用户发送图片信息时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..thumb_pic</td>
+  <td align="right">主题缩略图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..original_pic</td>
+  <td align="right">主题原图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..jt_theme_id</td>
+  <td align="right">用户发送图片所属主题ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..isbattle</td>
+  <td align="right">用户发送图片当前是否处于战斗状态</td>
+  <td align="center">0正常状态，1参战状态</td>
+</tr>
+<tr>
+  <td align="left">Data..islock</td>
+  <td align="right">用户发送图片当前是否处于锁定状态</td>
+  <td align="center">0正常状态，1战斗结束，锁定状态</td>
+</tr>
+</tbody></table>
+
+
+<p>| Data..level   |   用户发送图片等级 |    | <br>
+| Data..praise_count   |   用户发送图片被赞数 |    | <br>
+| Data..comment_count   |   用户发送图片评论数 |    |</p>
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1005</td>
+  <td align="right">操作失败，该用户未登录</td>
+</tr>
+<tr>
+  <td align="left">1031</td>
+  <td align="right">获取失败，用户未发送当日任何主题的图片</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-74" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称生成对战接口">接口名称：生成对战接口</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/battle/generate" target="_blank">www.eddywren.com/api/index.php/v1/battle/generate</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/battle/generate" target="_blank">www.jjpicture.com/api/index.php/v1/battle/generate</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">账号</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，用户填写，由11位手机号构成，String</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">是</td>
+  <td align="center">用于用户登录状态保持，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">theme_id</td>
+  <td align="right">图片主题ID</td>
+  <td align="center">是</td>
+  <td align="center">图片主题ID，发送成功请求生成对战的主题ID，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">request_pic_id</td>
+  <td align="right">图片ID</td>
+  <td align="center">是</td>
+  <td align="center">图片ID，发送成功请求生成对战的图片ID，开发者填写，String</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">用于用户登录状态保持的令牌</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..id</td>
+  <td align="right">对战ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..left_pic_id</td>
+  <td align="right">当前对战左图ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..right_pic_id</td>
+  <td align="right">当前对战右图ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">当前对战生成时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..updatetime</td>
+  <td align="right">当前对战更新时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..isbattle</td>
+  <td align="right">当前对战所处状态</td>
+  <td align="center">0对战状态，1对战结束</td>
+</tr>
+<tr>
+  <td align="left">Data..jt_theme_id</td>
+  <td align="right">当前对战所属主题ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..left_thumb_pic_path</td>
+  <td align="right">当前对战左图缩略图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..left_original_pic_path</td>
+  <td align="right">当前对战左图原图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..right_thumb_pic_path</td>
+  <td align="right">当前对战右图缩略图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..right_original_pic_path</td>
+  <td align="right">当前对战右图原图路径</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1005</td>
+  <td align="right">操作失败，该用户未登录</td>
+</tr>
+<tr>
+  <td align="left">1041</td>
+  <td align="right">生成对战失败，当前不存在能够生成对战的图片，即将生成对战</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-75" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称随机获取对战接口">接口名称：随机获取对战接口</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/battle/get" target="_blank">www.eddywren.com/api/index.php/v1/battle/get</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/battle/get" target="_blank">www.jjpicture.com/api/index.php/v1/battle/get</a> <br>
+请求方式：GET <br>
+请求参数 <br>
+无</p>
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">用于用户登录状态保持的令牌</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..id</td>
+  <td align="right">对战ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..left_pic_id</td>
+  <td align="right">当前对战左图ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..right_pic_id</td>
+  <td align="right">当前对战右图ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..left_count</td>
+  <td align="right">当前对战左图投票计数</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..right_count</td>
+  <td align="right">当前对战右图投票计数</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">当前对战生成时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..updatetime</td>
+  <td align="right">当前对战更新时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..isbattle</td>
+  <td align="right">当前对战所处状态</td>
+  <td align="center">0对战状态，1对战结束</td>
+</tr>
+<tr>
+  <td align="left">Data..jt_theme_id</td>
+  <td align="right">当前对战所属主题ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..left_thumb_pic_path</td>
+  <td align="right">当前对战左图缩略图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..left_original_pic_path</td>
+  <td align="right">当前对战左图原图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..right_thumb_pic_path</td>
+  <td align="right">当前对战右图缩略图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..right_original_pic_path</td>
+  <td align="right">当前对战右图原图路径</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1042</td>
+  <td align="right">获取对战失败，当前没有正在进行的对战</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-76" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称获取指定图片对战接口">接口名称：获取指定图片对战接口</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/battle/getappoint" target="_blank">www.eddywren.com/api/index.php/v1/battle/getappoint</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/battle/getappoint" target="_blank">www.jjpicture.com/api/index.php/v1/battle/getappoint</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">账号</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，用户填写，由11位手机号构成，String</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">是</td>
+  <td align="center">用于用户登录状态保持，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">pic_id</td>
+  <td align="right">图片主题ID</td>
+  <td align="center">是</td>
+  <td align="center">图片主题ID，发送成功请求生成对战的主题ID，开发者填写，String</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">用于用户登录状态保持的令牌</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..id</td>
+  <td align="right">对战ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..left_pic_id</td>
+  <td align="right">当前对战左图ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..right_pic_id</td>
+  <td align="right">当前对战右图ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..left_count</td>
+  <td align="right">当前对战左图投票计数</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..right_count</td>
+  <td align="right">当前对战右图投票计数</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">当前对战生成时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..updatetime</td>
+  <td align="right">当前对战更新时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..isbattle</td>
+  <td align="right">当前对战所处状态</td>
+  <td align="center">0对战状态，1对战结束</td>
+</tr>
+<tr>
+  <td align="left">Data..jt_theme_id</td>
+  <td align="right">当前对战所属主题ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..left_thumb_pic_path</td>
+  <td align="right">当前对战左图缩略图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..left_original_pic_path</td>
+  <td align="right">当前对战左图原图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..right_thumb_pic_path</td>
+  <td align="right">当前对战右图缩略图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..right_original_pic_path</td>
+  <td align="right">当前对战右图原图路径</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1005</td>
+  <td align="right">操作失败，该用户未登录</td>
+</tr>
+<tr>
+  <td align="left">1041</td>
+  <td align="right">生成对战失败，当前不存在能够生成对战的图片，即将生成对战</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-77" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称随机获取复活">接口名称：随机获取复活</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/battle/getresurrection" target="_blank">www.eddywren.com/api/index.php/v1/battle/getresurrection</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/battle/getresurrection" target="_blank">www.jjpicture.com/api/index.php/v1/battle/getresurrection</a> <br>
+请求方式：GET <br>
+请求参数 <br>
+无</p>
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">用于用户登录状态保持的令牌</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data….id</td>
+  <td align="right">复活ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..。。pic_id</td>
+  <td align="right">复活图片ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..right_pic_id</td>
+  <td align="right">当前对战右图ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data….death_count</td>
+  <td align="right">投票死亡计数</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data….resurrection_count</td>
+  <td align="right">投票复活计数</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data….createtime</td>
+  <td align="right">复活创建时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data….updatetime</td>
+  <td align="right">复活更新时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data….isover</td>
+  <td align="right">当前复活是否结束</td>
+  <td align="center">0正常状态，1复活结束</td>
+</tr>
+<tr>
+  <td align="left">Data….jt_theme_id</td>
+  <td align="right">当前复活图片所属主题ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data….thumb_pic_path</td>
+  <td align="right">当前复活图片缩略图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data….original_pic_path</td>
+  <td align="right">当前复活图片原图路径</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1043</td>
+  <td align="right">获取复活失败，当前不存在处于复活状态的图片，即将生成复活</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-78" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称对战投票">接口名称：对战投票</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/vote/sendbattle" target="_blank">www.eddywren.com/api/index.php/v1/vote/sendbattle</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/vote/sendbattle" target="_blank">www.jjpicture.com/api/index.php/v1/vote/sendbattle</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">账号</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，开发者填写，由11位手机号构成，String</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">是</td>
+  <td align="center">用于用户登录状态保持，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">battle_id</td>
+  <td align="right">对战ID</td>
+  <td align="center">是</td>
+  <td align="center">对战ID，用户需要投票的对战ID，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">pic_id</td>
+  <td align="right">图片ID</td>
+  <td align="center">是</td>
+  <td align="center">图片ID，发送用户需要在当前对战投票的图片ID，开发者填写，String</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">用于用户登录状态保持的令牌</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..id</td>
+  <td align="right">对战ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..left_pic_id</td>
+  <td align="right">当前对战左图ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..right_pic_id</td>
+  <td align="right">当前对战右图ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..left_count</td>
+  <td align="right">当前对战左图投票计数</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..right_count</td>
+  <td align="right">当前对战右图投票计数</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">当前对战生成时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..updatetime</td>
+  <td align="right">当前对战更新时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..isbattle</td>
+  <td align="right">当前对战所处状态</td>
+  <td align="center">0对战状态，1对战结束</td>
+</tr>
+<tr>
+  <td align="left">Data..jt_theme_id</td>
+  <td align="right">当前对战所属主题ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..left_thumb_pic_path</td>
+  <td align="right">当前对战左图缩略图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..left_original_pic_path</td>
+  <td align="right">当前对战左图原图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..right_thumb_pic_path</td>
+  <td align="right">当前对战右图缩略图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..right_original_pic_path</td>
+  <td align="right">当前对战右图原图路径</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1005</td>
+  <td align="right">操作失败，该用户未登录</td>
+</tr>
+<tr>
+  <td align="left">1044</td>
+  <td align="right">投票失败，该对战已结束</td>
+</tr>
+<tr>
+  <td align="left">1045</td>
+  <td align="right">投票失败，该用户已在该对战中投票</td>
+</tr>
+<tr>
+  <td align="left">1046</td>
+  <td align="right">投票失败，用户不能给自己投票</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-79" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称删除对战投票">接口名称：删除对战投票</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/vote/deletebattle" target="_blank">www.eddywren.com/api/index.php/v1/vote/deletebattle</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/vote/deletebattle" target="_blank">www.jjpicture.com/api/index.php/v1/vote/deletebattle</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">账号</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，开发者填写，由11位手机号构成，String</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">是</td>
+  <td align="center">用于用户登录状态保持，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">battle_id</td>
+  <td align="right">对战ID</td>
+  <td align="center">是</td>
+  <td align="center">对战ID，用户需要删除投票的对战ID，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">pic_id</td>
+  <td align="right">图片ID</td>
+  <td align="center">是</td>
+  <td align="center">图片ID，发送用户需要在当前对战删除投票的图片ID，开发者填写，String</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">用于用户登录状态保持的令牌</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..id</td>
+  <td align="right">对战ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..left_pic_id</td>
+  <td align="right">当前对战左图ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..right_pic_id</td>
+  <td align="right">当前对战右图ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..left_count</td>
+  <td align="right">当前对战左图投票计数</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..right_count</td>
+  <td align="right">当前对战右图投票计数</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">当前对战生成时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..updatetime</td>
+  <td align="right">当前对战更新时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..isbattle</td>
+  <td align="right">当前对战所处状态</td>
+  <td align="center">0对战状态，1对战结束</td>
+</tr>
+<tr>
+  <td align="left">Data..jt_theme_id</td>
+  <td align="right">当前对战所属主题ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..left_thumb_pic_path</td>
+  <td align="right">当前对战左图缩略图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..left_original_pic_path</td>
+  <td align="right">当前对战左图原图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..right_thumb_pic_path</td>
+  <td align="right">当前对战右图缩略图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..right_original_pic_path</td>
+  <td align="right">当前对战右图原图路径</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1005</td>
+  <td align="right">操作失败，该用户未登录</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-80" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称复活投票">接口名称：复活投票</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/vote/sendresurrection" target="_blank">www.eddywren.com/api/index.php/v1/vote/sendresurrection</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/vote/sendresurrection" target="_blank">www.jjpicture.com/api/index.php/v1/vote/sendresurrection</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">账号</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，开发者填写，由11位手机号构成，String</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">是</td>
+  <td align="center">用于用户登录状态保持，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">resurrection_id</td>
+  <td align="right">复活ID</td>
+  <td align="center">是</td>
+  <td align="center">复活ID，用户需要发送投票的复活ID，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">pic_id</td>
+  <td align="right">图片ID</td>
+  <td align="center">是</td>
+  <td align="center">图片ID，发送用户需要发送投票的复活图片ID，开发者填写，String</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">用于用户登录状态保持的令牌</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..id</td>
+  <td align="right">复活ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..pic_id</td>
+  <td align="right">当前复活图片ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..resurrection_count</td>
+  <td align="right">当前复活图片复活投票计数</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..death_count</td>
+  <td align="right">当前复活图片死亡投票计数</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">当前复活生成时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..updatetime</td>
+  <td align="right">当前复活更新时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..isover</td>
+  <td align="right">当前复活所处状态</td>
+  <td align="center">0正常状态，1投票结束</td>
+</tr>
+<tr>
+  <td align="left">Data..jt_theme_id</td>
+  <td align="right">当前复活图片所属主题ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..thumb_pic_path</td>
+  <td align="right">当前复活图片缩略图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..original_pic_path</td>
+  <td align="right">当前复活图片原图路径</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1005</td>
+  <td align="right">操作失败，该用户未登录</td>
+</tr>
+<tr>
+  <td align="left">1047</td>
+  <td align="right">投票失败，该图片复活回合已结束</td>
+</tr>
+<tr>
+  <td align="left">1046</td>
+  <td align="right">投票失败，用户不能给自己投票</td>
+</tr>
+<tr>
+  <td align="left">1048</td>
+  <td align="right">投票失败，该图片复活中此用户已投票</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-81" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称删除复活投票">接口名称：删除复活投票</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/vote/deleteresurrection" target="_blank">www.eddywren.com/api/index.php/v1/vote/deleteresurrection</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/vote/deleteresurrection" target="_blank">www.jjpicture.com/api/index.php/v1/vote/deleteresurrection</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">账号</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，开发者填写，由11位手机号构成，String</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">是</td>
+  <td align="center">用于用户登录状态保持，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">resurrection_id</td>
+  <td align="right">复活ID</td>
+  <td align="center">是</td>
+  <td align="center">复活ID，用户需要发送投票的复活ID，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">pic_id</td>
+  <td align="right">图片ID</td>
+  <td align="center">是</td>
+  <td align="center">图片ID，发送用户需要发送投票的复活图片ID，开发者填写，String</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">用于用户登录状态保持的令牌</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..id</td>
+  <td align="right">复活ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..pic_id</td>
+  <td align="right">当前复活图片ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..resurrection_count</td>
+  <td align="right">当前复活图片复活投票计数</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..death_count</td>
+  <td align="right">当前复活图片死亡投票计数</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">当前复活生成时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..updatetime</td>
+  <td align="right">当前复活更新时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..isover</td>
+  <td align="right">当前复活所处状态</td>
+  <td align="center">0正常状态，1投票结束</td>
+</tr>
+<tr>
+  <td align="left">Data..jt_theme_id</td>
+  <td align="right">当前复活图片所属主题ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..thumb_pic_path</td>
+  <td align="right">当前复活图片缩略图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..original_pic_path</td>
+  <td align="right">当前复活图片原图路径</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1005</td>
+  <td align="right">操作失败，该用户未登录</td>
+</tr>
+<tr>
+  <td align="left">1049</td>
+  <td align="right">该用户未在该复活中投票，不可删除</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-82" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称复活死亡投票">接口名称：复活死亡投票</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/vote/senddeath" target="_blank">www.eddywren.com/api/index.php/v1/vote/senddeath</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/vote/senddeath" target="_blank">www.jjpicture.com/api/index.php/v1/vote/senddeath</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">账号</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，开发者填写，由11位手机号构成，String</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">是</td>
+  <td align="center">用于用户登录状态保持，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">resurrection_id</td>
+  <td align="right">复活ID</td>
+  <td align="center">是</td>
+  <td align="center">复活ID，用户需要发送投票的复活ID，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">pic_id</td>
+  <td align="right">图片ID</td>
+  <td align="center">是</td>
+  <td align="center">图片ID，发送用户需要发送投票的复活图片ID，开发者填写，String</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">用于用户登录状态保持的令牌</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..id</td>
+  <td align="right">复活ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..pic_id</td>
+  <td align="right">当前复活图片ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..resurrection_count</td>
+  <td align="right">当前复活图片复活投票计数</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..death_count</td>
+  <td align="right">当前复活图片死亡投票计数</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">当前复活生成时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..updatetime</td>
+  <td align="right">当前复活更新时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..isover</td>
+  <td align="right">当前复活所处状态</td>
+  <td align="center">0正常状态，1投票结束</td>
+</tr>
+<tr>
+  <td align="left">Data..jt_theme_id</td>
+  <td align="right">当前复活图片所属主题ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..thumb_pic_path</td>
+  <td align="right">当前复活图片缩略图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..original_pic_path</td>
+  <td align="right">当前复活图片原图路径</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1005</td>
+  <td align="right">操作失败，该用户未登录</td>
+</tr>
+<tr>
+  <td align="left">1047</td>
+  <td align="right">投票失败，该图片复活回合已结束</td>
+</tr>
+<tr>
+  <td align="left">1046</td>
+  <td align="right">投票失败，用户不能给自己投票</td>
+</tr>
+<tr>
+  <td align="left">1048</td>
+  <td align="right">投票失败，该图片复活中此用户已投票</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-83" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称删除复活死亡投票">接口名称：删除复活死亡投票</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/vote/deletedeath" target="_blank">www.eddywren.com/api/index.php/v1/vote/deletedeath</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/vote/deletedeath" target="_blank">www.jjpicture.com/api/index.php/v1/vote/deletedeath</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">账号</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，开发者填写，由11位手机号构成，String</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">是</td>
+  <td align="center">用于用户登录状态保持，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">resurrection_id</td>
+  <td align="right">复活ID</td>
+  <td align="center">是</td>
+  <td align="center">复活ID，用户需要发送投票的复活ID，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">pic_id</td>
+  <td align="right">图片ID</td>
+  <td align="center">是</td>
+  <td align="center">图片ID，发送用户需要发送投票的复活图片ID，开发者填写，String</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">用于用户登录状态保持的令牌</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..id</td>
+  <td align="right">复活ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..pic_id</td>
+  <td align="right">当前复活图片ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..resurrection_count</td>
+  <td align="right">当前复活图片复活投票计数</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..death_count</td>
+  <td align="right">当前复活图片死亡投票计数</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">当前复活生成时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..updatetime</td>
+  <td align="right">当前复活更新时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..isover</td>
+  <td align="right">当前复活所处状态</td>
+  <td align="center">0正常状态，1投票结束</td>
+</tr>
+<tr>
+  <td align="left">Data..jt_theme_id</td>
+  <td align="right">当前复活图片所属主题ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..thumb_pic_path</td>
+  <td align="right">当前复活图片缩略图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..original_pic_path</td>
+  <td align="right">当前复活图片原图路径</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1005</td>
+  <td align="right">操作失败，该用户未登录</td>
+</tr>
+<tr>
+  <td align="left">1049</td>
+  <td align="right">该用户未在该复活中投票，不可删除</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-84" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称获取指定对战投票详情">接口名称：获取指定对战投票详情</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/vote/getbattle" target="_blank">www.eddywren.com/api/index.php/v1/vote/getbattle</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/vote/getbattle" target="_blank">www.jjpicture.com/api/index.php/v1/vote/getbattle</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">battle_id</td>
+  <td align="right">对战ID</td>
+  <td align="center">是</td>
+  <td align="center">对战ID，需要获取投票列表的对战ID，开发者填写，String</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..id</td>
+  <td align="right">投票ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..pic_id</td>
+  <td align="right">当前投票图片ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..uid</td>
+  <td align="right">当前投票用户ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">当前投票生成时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..jt_battle_id</td>
+  <td align="right">当前投票所属对战ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..chick_id</td>
+  <td align="right">当前投票所属用户专属鸡ID</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-85" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称获取指定对战投票详情-1">接口名称：获取指定对战投票详情</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/vote/getresurrection" target="_blank">www.eddywren.com/api/index.php/v1/vote/getresurrection</a> <br>
+接口正式访问的URL: [www.jjpicture.com/api/index.php/v1/vote/getresurrection](www.jjpicture.com/api/index.php/v1/vote/getresurrection <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">resurrection_id</td>
+  <td align="right">对战ID</td>
+  <td align="center">是</td>
+  <td align="center">对战ID，需要获取投票列表的对战ID，开发者填写，String</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..id</td>
+  <td align="right">投票ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..ResurrectionMessage</td>
+  <td align="right">当前投票复活投票信息</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..ResurrectionMessage..id</td>
+  <td align="right">复活投票ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..ResurrectionMessage..pic_id</td>
+  <td align="right">复活投票图片ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..ResurrectionMessage..uid</td>
+  <td align="right">当前复活投票用户ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..ResurrectionMessage..createtime</td>
+  <td align="right">当前复活投票生成时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..ResurrectionMessage..jt_resurrection_id</td>
+  <td align="right">当前复活投票所属对战ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..ResurrectionMessage..chick_id</td>
+  <td align="right">当前复活投票所属用户专属鸡ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..DeathMessage</td>
+  <td align="right">当前投票死亡投票信息</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..DeathMessage..id</td>
+  <td align="right">死亡投票ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..DeathMessage..pic_id</td>
+  <td align="right">死亡投票图片ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..DeathMessage..uid</td>
+  <td align="right">当前死亡投票用户ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..DeathMessage..createtime</td>
+  <td align="right">当前死亡投票生成时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..DeathMessage..jt_resurrection_id</td>
+  <td align="right">当前复活投票所属对战ID</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-86" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称图片点赞">接口名称：图片点赞</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/praise/send" target="_blank">www.eddywren.com/api/index.php/v1/praise/send</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/praise/send" target="_blank">www.jjpicture.com/api/index.php/v1/praise/send</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">账号</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，开发者填写，由11位手机号构成，String</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">是</td>
+  <td align="center">用于用户登录状态保持，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">pic_id</td>
+  <td align="right">图片ID</td>
+  <td align="center">是</td>
+  <td align="center">图片ID，发送用户需要发送投票的复活图片ID，开发者填写，String</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">用于用户登录状态保持的令牌</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..id</td>
+  <td align="right">用户发送图片信息ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..content</td>
+  <td align="right">用户发送图片信息内容</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">用户发送图片信息时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..updatetime</td>
+  <td align="right">用户发送图片信息时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..thumb_pic</td>
+  <td align="right">主题缩略图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..original_pic</td>
+  <td align="right">主题原图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..uid</td>
+  <td align="right">发送图片用户ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..jt_theme_id</td>
+  <td align="right">用户发送图片所属主题ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..isbattle</td>
+  <td align="right">用户发送图片当前是否处于战斗状态</td>
+  <td align="center">0正常状态，1参战状态</td>
+</tr>
+<tr>
+  <td align="left">Data..islock</td>
+  <td align="right">用户发送图片当前是否处于锁定状态</td>
+  <td align="center">0正常状态，1战斗结束，锁定状态</td>
+</tr>
+<tr>
+  <td align="left">Data..level</td>
+  <td align="right">用户发送图片等级</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..praise_count</td>
+  <td align="right">用户发送图片被赞数</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..comment_count</td>
+  <td align="right">用户发送图片评论数</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1005</td>
+  <td align="right">操作失败，该用户未登录</td>
+</tr>
+<tr>
+  <td align="left">1050</td>
+  <td align="right">点赞失败，不存在该图片</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-87" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称宣传栏及广告栏内容获取开放接口">接口名称：宣传栏及广告栏内容获取（开放接口）</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/ad/get" target="_blank">www.eddywren.com/api/index.php/v1/ad/get</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/ad/get" target="_blank">www.jjpicture.com/api/index.php/v1/ad/get</a> <br>
+请求方式：GET <br>
+请求参数 <br>
+无</p>
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">用于用户登录状态保持的令牌</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..id</td>
+  <td align="right">宣传栏及广告栏ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..title</td>
+  <td align="right">宣传栏及广告栏题目</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..content</td>
+  <td align="right">宣传栏及广告栏内容</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..url</td>
+  <td align="right">宣传栏及广告栏浏览器跳转页面URL</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..thumb_pic</td>
+  <td align="right">主题缩略图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..original_pic</td>
+  <td align="right">主题原图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">宣传栏及广告栏创建时间</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<p>无</p>
+
+</div><div id="wmd-preview-section-88" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称排行榜获取开放接口">接口名称：排行榜获取（开放接口）</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/rank/get" target="_blank">www.eddywren.com/api/index.php/v1/rank/get</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/rank/get" target="_blank">www.jjpicture.com/api/index.php/v1/rank/get</a> <br>
+请求方式：GET <br>
+请求参数 <br>
+无</p>
+
+<p>返回数据类型：JSON <br>
+分主题获取所有的排行榜前100 <br>
+返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">用于用户登录状态保持的令牌</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data….id</td>
+  <td align="right">排行榜图片ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data….uid</td>
+  <td align="right">排行榜图片所属用户ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data….content</td>
+  <td align="right">宣传栏及广告栏题目</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data….createtime</td>
+  <td align="right">宣传栏及广告栏内容</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data….updatetime</td>
+  <td align="right">宣传栏及广告栏浏览器跳转页面URL</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data….thumb_pic</td>
+  <td align="right">主题缩略图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data….original_pic</td>
+  <td align="right">主题原图路径</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data….jt_theme_id</td>
+  <td align="right">宣传栏及广告栏创建时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data….isbattle</td>
+  <td align="right">宣传栏及广告栏创建时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data….islock</td>
+  <td align="right">宣传栏及广告栏创建时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data….level</td>
+  <td align="right">宣传栏及广告栏创建时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data….praise_count</td>
+  <td align="right">宣传栏及广告栏创建时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data….comment_count</td>
+  <td align="right">宣传栏及广告栏创建时间</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<p>无</p>
+
+</div><div id="wmd-preview-section-89" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称关注">接口名称：关注</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/follow/send" target="_blank">www.eddywren.com/api/index.php/v1/follow/send</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/follow/send" target="_blank">www.jjpicture.com/api/index.php/v1/follow/send</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">账号</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，开发者填写，由11位手机号构成，String</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">是</td>
+  <td align="center">用于用户登录状态保持，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">follow_id</td>
+  <td align="right">添加关注用户ID</td>
+  <td align="center">是</td>
+  <td align="center">添加关注用户ID，开发者填写，int</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">关注成功</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">用于用户登录状态保持的令牌</td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1005</td>
+  <td align="right">操作失败，该用户未登录</td>
+</tr>
+<tr>
+  <td align="left">1051</td>
+  <td align="right">关注失败，该用户已被关注</td>
+</tr>
+</tbody></table>
+
+
+<p>关注第三方推送被关注用户获取提醒内容格式</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">关注提醒</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回具体数据内容</td>
+  <td align="center">返回具体数据内容此为第一级描述</td>
+</tr>
+<tr>
+  <td align="left">Data..id</td>
+  <td align="right">关注用户ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..nickname</td>
+  <td align="right">关注用户昵称</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..head_pic_path</td>
+  <td align="right">关注用户头像url</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">关注时间</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-90" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称获取关注用户id列表">接口名称：获取关注用户ID列表</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/follow/get" target="_blank">www.eddywren.com/api/index.php/v1/follow/get</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/follow/get" target="_blank">www.jjpicture.com/api/index.php/v1/follow/get</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">uid</td>
+  <td align="right">需要获取关注用户列表的用户ID</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，开发者填写，int</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..id</td>
+  <td align="right">关注列表ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..follow</td>
+  <td align="right">关注用户ID</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-91" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称获取粉丝用户id列表">接口名称：获取粉丝用户ID列表</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/fans/get" target="_blank">www.eddywren.com/api/index.php/v1/fans/get</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/fans/get" target="_blank">www.jjpicture.com/api/index.php/v1/fans/get</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">uid</td>
+  <td align="right">需要获取关注用户列表的用户ID</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，开发者填写，int</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..id</td>
+  <td align="right">关注列表ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..fans</td>
+  <td align="right">粉丝用户ID</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-92" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称发送私信">接口名称：发送私信</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/letter/send" target="_blank">www.eddywren.com/api/index.php/v1/letter/send</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/letter/send" target="_blank">www.jjpicture.com/api/index.php/v1/letter/send</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">账号</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，开发者填写，由11位手机号构成，String</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">是</td>
+  <td align="center">用于用户登录状态保持，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">toUid</td>
+  <td align="right">私信发送到的用户ID</td>
+  <td align="center">是</td>
+  <td align="center">开发者填写，int</td>
+</tr>
+<tr>
+  <td align="left">contentLetter</td>
+  <td align="right">私信内容</td>
+  <td align="center">是</td>
+  <td align="center">私信内容，用户填写，String</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1005</td>
+  <td align="right">操作失败，该用户未登录</td>
+</tr>
+</tbody></table>
+
+
+<p>私信第三方推送接收内容格式</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..fromUid</td>
+  <td align="right">信息发送自用户ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..nickname</td>
+  <td align="right">发送信息用户昵称</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..head_pic_path</td>
+  <td align="right">发送信息用户头像url</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..contentLetter</td>
+  <td align="right">发送内容</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">发送信息时间</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-93" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称发送评论">接口名称：发送评论</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/comment/send" target="_blank">www.eddywren.com/api/index.php/v1/comment/send</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/comment/send" target="_blank">www.jjpicture.com/api/index.php/v1/comment/send</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">账号</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，开发者填写，由11位手机号构成，String</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">是</td>
+  <td align="center">用于用户登录状态保持，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">pic_id</td>
+  <td align="right">评论图片ID</td>
+  <td align="center">是</td>
+  <td align="center">开发者填写，int</td>
+</tr>
+<tr>
+  <td align="left">contentComment</td>
+  <td align="right">评论内容</td>
+  <td align="center">是</td>
+  <td align="center">评论内容，用户填写，String</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1005</td>
+  <td align="right">操作失败，该用户未登录</td>
+</tr>
+</tbody></table>
+
+
+<p>私信第三方推送接收内容格式</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..fromUid</td>
+  <td align="right">评论发送自用户ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..nickname</td>
+  <td align="right">评论发送用户昵称</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..head_pic_path</td>
+  <td align="right">评论发送用户头像url</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..contentComment</td>
+  <td align="right">评论发送内容</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">发送信息时间</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-94" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称获取评论">接口名称：获取评论</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/comment/get" target="_blank">www.eddywren.com/api/index.php/v1/comment/get</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/comment/get" target="_blank">www.jjpicture.com/api/index.php/v1/comment/get</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">pic_id</td>
+  <td align="right">评论图片ID</td>
+  <td align="center">是</td>
+  <td align="center">开发者填写，int</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">Data</td>
+  <td align="right">返回的具体数据内容</td>
+  <td align="center">Data为数据第一级参数，需向下进行具体解析</td>
+</tr>
+<tr>
+  <td align="left">Data..id</td>
+  <td align="right">评论ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..content</td>
+  <td align="right">评论内容</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..createtime</td>
+  <td align="right">评论发送时间</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..from_uid</td>
+  <td align="right">评论发送用户ID</td>
+  <td align="center"></td>
+</tr>
+<tr>
+  <td align="left">Data..jt_post_pic_id</td>
+  <td align="right">评论发送所属图片ID</td>
+  <td align="center"></td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1005</td>
+  <td align="right">操作失败，该用户未登录</td>
+</tr>
+</tbody></table>
+
+
+</div><div id="wmd-preview-section-95" class="wmd-preview-section preview-content">
+
+<h3 id="接口名称发送评论-1">接口名称：发送评论</h3>
+
+<p>接口测试访问的URL:<a href="http://www.eddywren.com/api/index.php/v1/comment/delete" target="_blank">www.eddywren.com/api/index.php/v1/comment/delete</a> <br>
+接口正式访问的URL: <a href="http://www.jjpicture.com/api/index.php/v1/comment/delete" target="_blank">www.jjpicture.com/api/index.php/v1/comment/delete</a> <br>
+请求方式：GET <br>
+请求参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">是否必须</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">username</td>
+  <td align="right">账号</td>
+  <td align="center">是</td>
+  <td align="center">用户账号，开发者填写，由11位手机号构成，String</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">令牌</td>
+  <td align="center">是</td>
+  <td align="center">用于用户登录状态保持，开发者填写，String</td>
+</tr>
+<tr>
+  <td align="left">pic_id</td>
+  <td align="right">评论图片ID</td>
+  <td align="center">是</td>
+  <td align="center">开发者填写，int</td>
+</tr>
+<tr>
+  <td align="left">comment_id</td>
+  <td align="right">评论ID</td>
+  <td align="center">是</td>
+  <td align="center">评论ID，开发者填写，int</td>
+</tr>
+</tbody></table>
+
+
+<p>返回数据类型：JSON</p>
+
+<p>返回参数</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">参数</th>
+  <th align="right">含义</th>
+  <th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">Code</td>
+  <td align="right">状态码</td>
+  <td align="center">成功操作状态码，成功操作时此次应为0</td>
+</tr>
+<tr>
+  <td align="left">Message</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+<tr>
+  <td align="left">accessToken</td>
+  <td align="right">信息提示</td>
+  <td align="center">对当前返回内容进行描述</td>
+</tr>
+</tbody></table>
+
+
+<p>错误提示 <br>
+错误提示由错误码<strong>Code</strong>和错误信息提示<strong>Message</strong>组成</p>
+
+<table>
+<thead>
+<tr>
+  <th align="left">返回码</th>
+  <th align="right">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td align="left">1000</td>
+  <td align="right">参数错误</td>
+</tr>
+<tr>
+  <td align="left">1005</td>
+  <td align="right">操作失败，该用户未登录</td>
+</tr>
+</tbody></table>
+</div><div id="wmd-preview-section-footnotes" class="preview-content"></div></div></body></html>
