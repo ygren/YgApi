@@ -58,10 +58,13 @@ lib:developer-defined class libraries
 
 model
 
-<<<<<<< HEAD
+
 
 apidoc.html the api description file
 
+mydb.sql:the database sql file
+
 
 all copyrigt reserved by YgRen
+
 
