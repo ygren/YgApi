@@ -58,8 +58,12 @@ lib:developer-defined class libraries
 
 model
 
+<<<<<<< HEAD
 
 apidoc.html the api description file
 
 
 all copyrigt reserved by YgRen
+=======
+apidoc.html the api description file 
+>>>>>>> origin/master
